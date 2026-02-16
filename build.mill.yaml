@@ -1,7 +1,7 @@
 extends: [ ScalaModule, SonatypeCentralPublishModule ]
 scalaVersion: 3.8.0
 jvmVersion: temurin:25
-publishVersion: 0.0.1
+publishVersion: 0.0.2
 artifactName: hookshot
 pomSettings:
   description: A Scala library that adds OpenID Connect authentication to Cask web applications via Pocket ID.
