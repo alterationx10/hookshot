@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Register</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<main class="container" style="max-width: 640px;">
+    <h1 class="mb-1">Create an Account</h1>
+    <p class="text-body-secondary mb-4">
+        Join <strong>altx10.dev</strong> to access a set of free, user-focused, open-source applications.
+    </p>
+    <p>
+        Accounts are managed through a hosted <strong>Pocket ID</strong> instance
+        <a href="https://account.altx10.dev">account.altx10.dev</a>.
+        Only passkeys are used for authentication &mdash; no passwords are
+        stored. Only minimal information is required to register, and your info will never be used for advertising
+        or shared with third parties. We do not intentionally track any personal information beyond what is required to
+        use one of our particular applications.
+    </p>
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="card-title fw-bold mb-3">Before registering, please review and accept the following:</p>
+            <ul class="mb-0">
+                <li>You assert that you are <strong>13 years of age or older</strong>.</li>
+                <li>Your information is not used for marketing, sales, or shared with any third parties.</li>
+                <li>This software is provided as-is, with no support and no guarantees of continued operation.</li>
+                <li>We reserve the right to suspend or terminate accounts at any time, for any reason, without notice.
+                </li>
+                <li>We are not liable for any data loss, damages, or issues arising from your use of these services.
+                </li>
+                <li>These terms may be updated at any time. Continued use of the service constitutes acceptance of any
+                    changes.
+                </li>
+                <li>You agree not to use these services for any unlawful or abusive purpose.</li>
+            </ul>
+        </div>
+    </div>
+    <form method="POST" action="/register">
+        <input type="hidden" name="csrfToken" value="{{csrfToken}}">
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="consent" value="true" id="consent" required>
+            <label class="form-check-label" for="consent">
+                I have read and agree to the above terms.
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+    <p class="text-body-secondary text-center small mt-3">
+        You will be redirected to <a href="https://account.altx10.dev">account.altx10.dev</a> to complete registration.
+    </p>
+    <p class="text-center mt-2"><a href="/login">Already have an account? Login</a></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+<script>
+    (function () {
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+            document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+        });
+    })();
+</script>
+
+</body>
+</html>

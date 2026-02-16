@@ -1,0 +1,32 @@
+extends: ScalaModule
+scalaVersion: 3.8.0
+jvmVersion: temurin:25
+publishVersion: 0.0.1
+artifactName: hookshot
+pomSettings:
+  description: A Scala library that adds OpenID Connect authentication to Cask web applications via Pocket ID.
+  organization: dev.alteration
+  url: https://github.com/alterationx10/hookshot
+  licenses: [ Apache 2 ]
+  versionControl: https://github.com/alterationx10/hookshot
+  developers:
+    - id: alterationx10
+      name: Mark Rudolph
+      email: mark@alteration.dev
+      url: https://github.com/alterationx10
+scalacOptions: [
+  -no-indent,
+  -rewrite,
+  -source:3.4-migration,
+  -Wunused:all,
+  -deprecation,
+  -feature,
+  -Xmax-inlines,
+  64
+]
+mvnDeps:
+  - com.lihaoyi::upickle:4.4.2
+  - com.lihaoyi::requests:0.9.3
+  - com.lihaoyi::cask:0.11.3
+  - dev.alteration::veil:0.0.15
+  - dev.alteration::mustachio:0.0.15
