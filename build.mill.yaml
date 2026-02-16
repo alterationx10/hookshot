@@ -1,4 +1,4 @@
-extends: ScalaModule
+extends: [ ScalaModule, SonatypeCentralPublishModule ]
 scalaVersion: 3.8.0
 jvmVersion: temurin:25
 publishVersion: 0.0.1
